@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Research project description goes here.">
+  <meta name="keywords" content="Your, Keywords, Here">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ROSE: Reconstructing Objects, Scenes, and Trajectories from Casual Videos for Robotic Manipulation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ROSE: Reconstructing Objects, Scenes, and Trajectories from Casual
+              Videos for Robotic Manipulation</h1>
+
+            <!-- <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+              </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img id="teaser" src="./static/images/teaser.png" alt="Project teaser" height="100%">
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content has-text-justified">
+            <p>
+              We propose <strong>ROSE</strong> (<strong>R</strong>econstruction of <strong>O</strong>bjects, <strong>S</strong>cene and Traj<strong>E</strong>ctories), a Real-to-Sim system to automatically
+              reconstruct simulator-ready assets, including objects, scenes, and object trajectory from monocular casual
+              videos to facilitate robotic manipulation. Leveraging <strong>ROSE</strong>, we collect a large-scale dataset comprising
+              diverse scenes, objects, trajectories, and physically plausible robotic actions for task completion. The
+              dataset
+              includes more than <strong>30</strong> scenes, <strong>50</strong> objects, <strong>600</strong> trajectories, and <strong>3,500</strong> robot action samples.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paper video. -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Real World Deployment. -->
+      <div class="columns is-centered">
+        <div class="column">
+          <h2 class="title is-3">Real World Deployment</h2>
+          <div class="content">
+
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-half">
+                <h2 class="title is-4">Human Demo</h2>
+                <div class="publication-video">
+                  <video controls autoplay muted loop playsinline height="100%">
+                    <source src="static/videos/rose-human-demo-no-hdr.mov" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-half">
+                <h2 class="title is-4">Robot Demo (2x Speed)</h2>
+                <div class="publication-video">
+                  <video controls autoplay muted loop playsinline height="100%">
+                    <source src="static/videos/rose-robot-demo-2x-no-hdr.mov" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <div class="columns is-centered has-text-centered">
+              <div class="column">
+                <h3 class="title is-5">Hand Rose (RL)</h3>
+              </div>
+            </div>
+
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-half">
+                <div class="publication-video">
+                  <video controls autoplay muted loop playsinline height="100%">
+                    <source
+                      src="static/videos/demo2_pick_croissant_0001_0D681AA4-FCBB-4801-8632-8AC63184BA53-no-hdr.mov"
+                      type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-half">
+                <div class="publication-video">
+                  <video controls autoplay muted loop playsinline height="100%">
+                    <source src="static/videos/franka_pick_croissant_2x-no-hdr.mov" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <div class="columns is-centered has-text-centered">
+              <div class="column">
+                <h3 class="title is-5">Pick Croissant (RL)</h3>
+              </div>
+            </div>
+
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-half">
+                <div class="publication-video">
+                  <video controls autoplay muted loop playsinline height="100%">
+                    <source src="static/videos/g1rose_hand_rose_0002_73FA6DE5-E8AE-49DC-93D5-E17144E2820D-no-hdr.mov"
+                      type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-half">
+                <div class="publication-video">
+                  <video controls autoplay muted loop playsinline height="100%">
+                    <source src="static/videos/g1_hand_rose_2x_no_hdr.mov" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <div class="columns is-centered has-text-centered">
+              <div class="column">
+                <h3 class="title is-5">Hand Rose (Motion Planning)</h3>
+              </div>
+            </div>
+
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-half">
+                <div class="publication-video">
+                  <video controls autoplay muted loop playsinline height="100%">
+                    <source
+                      src="static/videos/g1blue_pick_whale_doll_0007_37282FD0-EFD4-43E6-BFE1-E45FD5E8F13C-no-hdr.mov"
+                      type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="column is-half">
+                <div class="publication-video">
+                  <video controls autoplay muted loop playsinline height="100%">
+                    <source src="static/videos/g1_MoveAway_whale_doll_2x-no-hdr.mov" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <div class="columns is-centered has-text-centered">
+              <div class="column">
+                <h3 class="title is-5">Move Whale Doll (Motion Planning)</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ Real World Deployment. -->
+    </div>
+  </section>
+  <!-- / Paper video. -->
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              In this paper, we build a real-to-sim-to-real (Real2Sim2Real) system
+              for robot manipulation policy learning from casual human videos. We propose
+              a new framework, ROSE, that directly leverages casual videos to reconstruct
+              simulator-ready assets, including objects, scenes, and object trajectories, for training manipulation
+              policies with reinforcement learning in the simulation. Unlike
+              existing real-to-sim pipelines that rely on specialized equipment or time-consuming
+              and labor-intensive human annotation, our pipeline is equipment-agnostic and fully
+              automated, facilitating data collection scalability. From casual monocular videos,
+              ROSE enables the direct reconstruction of metric-scale scenes, objects, and object
+              trajectories in the same gravity-calibrated coordinate for robotic data collection
+              in the simulator. With ROSE, we curate a dataset of hundreds of simulator-ready
+              scenes from casual videos from our own capture and the Internet, and create a
+              benchmark for real-to-sim evaluation. Across a diverse suite of manipulation tasks,
+              ROSE outperforms the existing baselines, laying the groundwork for scalable
+              robotic data collection and achieving efficient Real2Sim2Real deployment.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Methods. -->
+      <div class="columns is-centered">
+        <div class="column">
+          <h2 class="title is-3">Methods</h2>
+          <div class="content">
+            <!-- Methods Figure/Diagram -->
+            <div class="columns">
+              <div class="column">
+                <p class="is-size-6">ROSE Real2Sim pipeline illustration. (a) We leverage MegaSaM and GeoCalib
+                  to reconstruct scene point cloud in the metric-scale and gravity-align world coordinates. (b) We
+                  further use SAM-2 and DINO-X to detect and track interactor and object mask from videos.</p>
+                <img src="./static/images/overview.png" alt="Method diagram">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ Methods. -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Real2Sim Results. -->
+      <div class="columns is-centered">
+        <div class="column">
+          <h2 class="title is-3">Real-to-Sim Results</h2>
+          <div class="content">
+            <!-- Real2Sim Results Figure/Diagram -->
+            <div class="column">
+              <video width="100%" autoplay muted playsinline>
+                <source src="static/videos/megasam-1.mov" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="column">
+              <video width="100%" autoplay muted playsinline>
+                <source src="static/videos/megasam-2.mov" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Real2Sim Results. -->
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Task Completion Rate in Simulation</h2>
+
+      <div class="columns">
+        <div class="column is-half">
+          <p style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            For real-world deployment, we evaluate our method across a diverse set of task scenarios drawn from our
+            dataset. In each test case, objects are placed in the same position and orientation as in the initial frame
+            of the corresponding video. Using our vision pipeline, we extract the 3D scene mesh, object mesh, and object
+            motion trajectory from the recorded demonstrations. Leveraging a real-to-sim-to-real pipeline, we train
+            control policies in simulation with the motion planning approach and deploy them directly on the physical
+            robot. In total, we conduct 18 real-world trials, of which 12 are successfully completed. These results
+            highlight the robustness and practical effectiveness of our proposed method in transferring from simulation
+            to real-world execution.
+          </p>
+        </div>
+        <div class="column is-half has-text-centered"
+          style="display: flex; align-items: center; justify-content: center;">
+          <canvas id="simToRealChart" style="width: 90%; height: 300px;"></canvas>
+        </div>
+      </div>
+
+      <script>
+        const ctx = document.getElementById('simToRealChart');
+        Chart.register(ChartDataLabels);
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['E2E RL', 'Video2Policy', 'Ours (MP)', 'Ours (RL)'],
+            datasets: [{
+              label: 'Success Rate',
+              data: [50, 10, 75, 90],
+              backgroundColor: [
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(54, 162, 235, 0.6)'
+              ],
+              borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)'
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                max: 100,
+                ticks: {
+                  callback: function (value) {
+                    return value + '%'
+                  }
+                }
+              },
+              x: {
+                ticks: {
+                  font: function (context) {
+                    const isLastTwo = context.index >= context.chart.data.labels.length - 2;
+                    return {
+                      weight: isLastTwo ? 'bold' : 'normal'
+                    };
+                  }
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                display: false
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return context.parsed.y + '%';
+                  }
+                }
+              },
+              datalabels: {
+                anchor: 'end',
+                align: 'top',
+                formatter: function (value, context) {
+                  return value + '%';
+                },
+                color: 'black',
+                font: function (context) {
+                  const isLastTwo = context.dataIndex >= context.chart.data.labels.length - 2;
+                  return {
+                    weight: isLastTwo ? 'bold' : 'normal'
+                  };
+                }
+              }
+            }
+          }
+        });
+      </script>
+
+      <!-- Task Completion Rate Table -->
+      <div class="columns is-centered">
+        <div class="column is-centered">
+          <div class="content has-text-centered">
+            <div class="column">
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>PickPepsi</th>
+                    <th>StackBlock</th>
+                    <th>PlaceBowl</th>
+                    <th>MoveTriangle</th>
+                    <th>Average</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>End-to-End RL</td>
+                    <td class="has-text-weight-bold">1.00</td>
+                    <td>0.00</td>
+                    <td class="has-text-weight-bold">1.00</td>
+                    <td>0.00</td>
+                    <td>0.50</td>
+                  </tr>
+                  <tr>
+                    <td>Video2Policy</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>0.40</td>
+                    <td>0.00</td>
+                    <td>0.10</td>
+                  </tr>
+                  <tr>
+                    <td>Ours (Motion Planning)</td>
+                    <td>0.80</td>
+                    <td class="has-text-weight-bold">1.00</td>
+                    <td>0.40</td>
+                    <td>0.80</td>
+                    <td>0.75</td>
+                  </tr>
+                  <tr>
+                    <td>Ours (Two-stage RL)</td>
+                    <td class="has-text-weight-bold">1.00</td>
+                    <td>0.60</td>
+                    <td class="has-text-weight-bold">1.00</td>
+                    <td class="has-text-weight-bold">1.00</td>
+                    <td class="has-text-weight-bold">0.90</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Real2Sim Gallery. -->
+      <div class="columns is-centered">
+        <div class="column is-centered">
+          <h2 class="title is-3">Real-to-Sim Gallery</h2>
+          <div class="content has-text-centered">
+            <!-- Real2Sim Gallery Figure/Diagram -->
+            <div class="column">
+              <img src="static/images/gallery_update.png" alt="Real2Sim gallery" class="mx-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Real2Sim Gallery. -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Real2Sim Benchmark. -->
+      <div class="columns is-centered">
+        <div class="column">
+          <h2 class="title is-3">Real-to-Sim Benchmark</h2>
+          <div class="content">
+            <div class="column">
+              <img src="static/images/benchmark_update.png" alt="Real2Sim diagram 1">
+            </div>
+
+            <!-- Real2Sim Benchmark Table -->
+            <div class="column">
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Task</th>
+                    <th>Avg. Scene<br>Chamfer Dist.</th>
+                    <th>Object<br>Chamfer Dist.</th>
+                    <th>Translation<br>APE</th>
+                    <th>Rotation<br>RPE</th>
+                    <th>Translation<br>RPE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Unstack</td>
+                    <td>0.621129</td>
+                    <td>0.021575</td>
+                    <td>0.003242</td>
+                    <td>3.724474</td>
+                    <td>0.001649</td>
+                  </tr>
+                  <tr>
+                    <td>Place</td>
+                    <td>0.694475</td>
+                    <td>0.010595</td>
+                    <td>0.026290</td>
+                    <td>3.804438</td>
+                    <td>0.022691</td>
+                  </tr>
+                  <tr>
+                    <td>Lift</td>
+                    <td>0.669574</td>
+                    <td>0.027855</td>
+                    <td>0.022079</td>
+                    <td>9.064921</td>
+                    <td>0.004374</td>
+                  </tr>
+                  <tr>
+                    <td>Push</td>
+                    <td>0.751338</td>
+                    <td>0.015157</td>
+                    <td>0.010858</td>
+                    <td>4.229092</td>
+                    <td>0.002170</td>
+                  </tr>
+                  <tr>
+                    <td>Rotate</td>
+                    <td>0.651292</td>
+                    <td>0.013939</td>
+                    <td>0.008418</td>
+                    <td>3.507935</td>
+                    <td>0.003301</td>
+                  </tr>
+                  <tr>
+                    <td>Average</td>
+                    <td>0.677562</td>
+                    <td>0.017824</td>
+                    <td>0.014177</td>
+                    <td>4.866172</td>
+                    <td>0.006837</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Real2Sim Benchmark. -->
+    </div>
+  </section>
+
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{lastname2023projectname,
+  author    = {LastName1, FirstName1 and LastName2, FirstName2 and LastName3, FirstName3},
+  title     = {Your Research Project Title},
+  journal   = {Conference/Journal Name},
+  year      = {2023},
+}</code></pre>
+    </div>
+  </section> -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="#">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="#" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This template is adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+              project page.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
