@@ -99,7 +99,8 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <div style="border: 2px solid #ddd; border-radius: 12px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #fff;">
+        <div
+          style="border: 2px solid #ddd; border-radius: 12px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #fff;">
           <video id="teaser" controls loop playsinline height="100%" style="border-radius: 8px; width: 100%;">
             <source src="static/videos/teaser_video.mp4" type="video/mp4">
           </video>
@@ -112,12 +113,15 @@
         <div class="column">
           <div class="content has-text-justified">
             <p>
-              We propose <strong>ROSE</strong> (<strong>R</strong>econstruction of <strong>O</strong>bjects, <strong>S</strong>cene and Traj<strong>E</strong>ctories), a Real-to-Sim system to automatically
+              We propose <strong>ROSE</strong> (<strong>R</strong>econstruction of <strong>O</strong>bjects,
+              <strong>S</strong>cene and Traj<strong>E</strong>ctories), a Real-to-Sim system to automatically
               reconstruct simulator-ready assets, including objects, scenes, and object trajectory from monocular casual
-              videos to facilitate robotic manipulation. Leveraging <strong>ROSE</strong>, we collect a large-scale dataset comprising
+              videos to facilitate robotic manipulation. Leveraging <strong>ROSE</strong>, we collect a large-scale
+              dataset comprising
               diverse scenes, objects, trajectories, and physically plausible robotic actions for task completion. The
               dataset
-              includes more than <strong>30</strong> scenes, <strong>50</strong> objects, <strong>600</strong> trajectories, and <strong>3,500</strong> robot action samples.
+              includes more than <strong>30</strong> scenes, <strong>50</strong> objects, <strong>600</strong>
+              trajectories, and <strong>3,500</strong> robot action samples.
             </p>
           </div>
         </div>
@@ -333,7 +337,7 @@
             of the corresponding video. Using our vision pipeline, we extract the 3D scene mesh, object mesh, and object
             motion trajectory from the recorded demonstrations. Leveraging a real-to-sim-to-real pipeline, we train
             control policies in simulation with the motion planning approach and deploy them directly on the physical
-            robot. In total, we conduct 18 real-world trials, of which 12 are successfully completed. These results
+            robot. In total, we conduct 13 real-world trials, of which 11 are successfully completed. These results
             highlight the robustness and practical effectiveness of our proposed method in transferring from simulation
             to real-world execution.
           </p>
@@ -499,6 +503,84 @@
     </div>
   </section>
 
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Post Filtering. -->
+      <div class="columns is-centered">
+        <div class="column is-centered">
+          <h2 class="title is-3">Post Filtering System</h2>
+          <div class="content">
+            <p class="has-text-justified">
+              With our post filtering system we are able to reconstruct scenes
+              from casual videos while maintaining the quality of our results. Additionally we compare the runtime of our
+              pipeline against the runtime of the leading baseline. <strong>ROSE</strong> reconstructs environments and trajectory
+              data around <strong>8× faster</strong> than the baseline while remaining
+              accurate on geometry.
+            </p>
+
+            <div class="column">
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <thead>
+                  <tr>
+                    <th rowspan="2">Task Name</th>
+                    <th colspan="2" class="has-text-centered">ROSE (Ours)</th>
+                    <th colspan="2" class="has-text-centered">Improved V2P</th>
+                  </tr>
+                  <tr>
+                    <th>Recon Time &darr;</th>
+                    <th>SSIM &uarr;</th>
+                    <th>Recon Time &darr;</th>
+                    <th>SSIM &uarr;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Triangle Move Mouse</td>
+                    <td><strong>8m46s</strong></td>
+                    <td><strong>0.803</strong></td>
+                    <td>72m39s</td>
+                    <td>0.746</td>
+                  </tr>
+                  <tr>
+                    <td>Circle Move Mouse</td>
+                    <td><strong>8m28s</strong></td>
+                    <td><strong>0.789</strong></td>
+                    <td>71m45s</td>
+                    <td>0.734</td>
+                  </tr>
+                  <tr>
+                    <td>Flip Magic Cube</td>
+                    <td><strong>7m57s</strong></td>
+                    <td><strong>0.718</strong></td>
+                    <td>70m37s</td>
+                    <td>0.598</td>
+                  </tr>
+                  <tr>
+                    <td>Rotate Stapler</td>
+                    <td><strong>8m39s</strong></td>
+                    <td><strong>0.715</strong></td>
+                    <td>83m01s</td>
+                    <td>0.582</td>
+                  </tr>
+                  <tr>
+                    <td>Pour Pepsi</td>
+                    <td><strong>9m22s</strong></td>
+                    <td><strong>0.713</strong></td>
+                    <td>77m58s</td>
+                    <td>0.632</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Post Filtering. -->
+    </div>
+  </section>
+
   <section class="section">
     <div class="container is-max-desktop">
       <!-- Real2Sim Benchmark. -->
@@ -526,50 +608,50 @@
                 <tbody>
                   <tr>
                     <td>Unstack</td>
-                    <td>0.621129</td>
-                    <td>0.021575</td>
+                    <td>0.6211</td>
+                    <td>0.02158</td>
                     <td>0.003242</td>
-                    <td>3.724474</td>
+                    <td>3.724</td>
                     <td>0.001649</td>
                   </tr>
                   <tr>
                     <td>Place</td>
-                    <td>0.694475</td>
-                    <td>0.010595</td>
+                    <td>0.6945</td>
+                    <td>0.01060</td>
                     <td>0.026290</td>
-                    <td>3.804438</td>
-                    <td>0.022691</td>
+                    <td>3.804</td>
+                    <td>0.022690</td>
                   </tr>
                   <tr>
                     <td>Lift</td>
-                    <td>0.669574</td>
-                    <td>0.027855</td>
-                    <td>0.022079</td>
-                    <td>9.064921</td>
+                    <td>0.6696</td>
+                    <td>0.02786</td>
+                    <td>0.022080</td>
+                    <td>9.065</td>
                     <td>0.004374</td>
                   </tr>
                   <tr>
                     <td>Push</td>
-                    <td>0.751338</td>
-                    <td>0.015157</td>
-                    <td>0.010858</td>
-                    <td>4.229092</td>
+                    <td>0.7513</td>
+                    <td>0.01516</td>
+                    <td>0.010860</td>
+                    <td>4.229</td>
                     <td>0.002170</td>
                   </tr>
                   <tr>
                     <td>Rotate</td>
-                    <td>0.651292</td>
-                    <td>0.013939</td>
+                    <td>0.6513</td>
+                    <td>0.01394</td>
                     <td>0.008418</td>
-                    <td>3.507935</td>
+                    <td>3.508</td>
                     <td>0.003301</td>
                   </tr>
                   <tr>
                     <td>Average</td>
-                    <td>0.677562</td>
-                    <td>0.017824</td>
-                    <td>0.014177</td>
-                    <td>4.866172</td>
+                    <td>0.6776</td>
+                    <td>0.01782</td>
+                    <td>0.014180</td>
+                    <td>4.866</td>
                     <td>0.006837</td>
                   </tr>
                 </tbody>
